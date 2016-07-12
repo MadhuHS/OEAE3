@@ -2,6 +2,8 @@ package com.jspiders.moblie.movieratingsapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -24,16 +26,22 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> names;
     ArrayAdapter adapter;
     ImageView ivposter;
+    RecyclerView recyclerView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_recyclerview);
 
-        movieslv = (ListView) findViewById(R.id.lvmovies);
+        recyclerView =(RecyclerView)findViewById(R.id.rvmovlist);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+        layoutManager.setOrientation(layoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+
+      /*  movieslv = (ListView) findViewById(R.id.lvmovies);
         names = new ArrayList<String>();
-        ivposter = (ImageView) findViewById(R.id.ivposter);
+        ivposter = (ImageView) findViewById(R.id.ivposter);*/
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get("http://www.omdbapi.com/?s=Batman&page=2", new AsyncHttpResponseHandler() {
@@ -48,18 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 Response response1 = gson.fromJson(jsonresponse,Response.class);
                 ArrayList<Response.Search> list = (ArrayList<Response.Search>) response1.getSearch();
 
-
-                for (Response.Search s : list)
-                {
-                    names.add(s.getTitle());
-                    //Log.d("DEBUG", s.getTitle());
-                }
-
-
-                adapter = new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,names);
+                /*adapter = new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,names);
                 movieslv.setAdapter(adapter);
 
                 Picasso.with(MainActivity.this).load(list.get(0).getPoster()).into(ivposter);
+*/
+                CustomAdapter customAdapter = new CustomAdapter(list,MainActivity.this);
+                recyclerView.setAdapter(customAdapter);
 
 
 

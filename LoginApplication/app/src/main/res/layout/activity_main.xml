@@ -41,9 +41,19 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Login"
         android:id="@+id/btnlogin"
         android:layout_below="@+id/etpassword"
         android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember Password"
+        android:layout_marginTop="5dp"
+        android:id="@+id/cbrmbrpwd"
+        android:layout_below="@+id/etpassword"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
 </RelativeLayout>
