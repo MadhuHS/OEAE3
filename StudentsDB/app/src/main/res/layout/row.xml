@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivstudentpic"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name"
+        android:id="@+id/tvname"
+        android:layout_marginLeft="8dp"
+        android:layout_alignTop="@+id/ivstudentpic"
+        android:layout_toEndOf="@+id/ivstudentpic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="id"
+        android:id="@+id/tvid"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/tvname"
+        android:layout_alignStart="@+id/tvname" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Branch"
+        android:layout_marginTop="4dp"
+        android:id="@+id/tvbranch"
+        android:layout_below="@+id/tvid"
+        android:layout_alignStart="@+id/tvid" />
+</RelativeLayout>

@@ -1,14 +1,18 @@
 package com.jspiders.moblie.studentsinfoapp;
 
 import io.realm.RealmObject;
+import io.realm.annotations.Ignore;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by user on 14/07/2016.
  */
 public class Student extends RealmObject {
 
+    @PrimaryKey
     private int ID;
     private String name;
+
     private String branch;
 
     public int getID() {
